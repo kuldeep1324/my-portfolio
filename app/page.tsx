@@ -3,7 +3,7 @@ export default function Home() {
     <main id="home" className="min-h-screen pt-24 text-[#e7efff]">
       <section className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-14 md:grid-cols-[1.2fr_1fr] md:px-8 md:py-20">
         <div className="fade-up">
-          <p className="mb-3 inline-flex rounded-full border border-[#8dc0ff]/30 bg-[#295dff]/18 px-4 py-1 text-sm font-semibold text-[#bcd5ff]">
+          <p className="status-pill mb-3">
             Available for freelance and full-time roles
           </p>
           <h1 className="hero-title text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
@@ -17,13 +17,13 @@ export default function Home() {
           <div className="fade-up-delay mt-8 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="rounded-xl bg-[#295dff] px-6 py-3 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#1f4fe8]"
+              className="btn-primary"
             >
               View Projects
             </a>
             <a
               href="#contact"
-              className="rounded-xl border border-[#8dc0ff]/35 bg-[#081a3d]/90 px-6 py-3 font-semibold text-[#dbe8ff] transition hover:-translate-y-0.5 hover:border-[#8dc0ff]/60"
+              className="btn-secondary"
             >
               Contact Me
             </a>
@@ -156,7 +156,7 @@ export default function Home() {
           </p>
           <a
             href="mailto:yourmail@gmail.com"
-            className="mt-7 inline-block rounded-xl bg-[#295dff] px-7 py-3 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#1f4fe8]"
+            className="btn-primary mt-7 inline-block"
           >
             yourmail@gmail.com
           </a>
