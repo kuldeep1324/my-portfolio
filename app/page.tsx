@@ -148,18 +148,51 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 pt-10 text-center md:px-8">
-        <div className="glass-card rounded-3xl p-8 md:p-12">
-          <h2 className="text-3xl font-bold text-[#e7efff] md:text-4xl">Let&apos;s Work Together</h2>
-          <p className="mx-auto mt-4 max-w-xl text-[#c7dbff]/82">
-            I&apos;m open to collaboration on web products, AI-powered tools, and modern frontend experiences.
-          </p>
-          <a
-            href="mailto:yourmail@gmail.com"
-            className="btn-primary mt-7 inline-block"
-          >
-            yourmail@gmail.com
-          </a>
+      <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 pt-10 md:px-8">
+        <div className="contact-shell glass-card rounded-3xl p-8 md:p-12">
+          <div className="contact-grid">
+            <div className="contact-copy">
+              <p className="contact-kicker">Let&apos;s Connect</p>
+              <h2 className="text-3xl font-bold text-[#e7efff] md:text-4xl">Let&apos;s Work Together</h2>
+              <p className="mt-4 max-w-xl text-[#c7dbff]/82">
+                I&apos;m open to collaboration on web products, AI-powered tools, and modern frontend experiences.
+              </p>
+            </div>
+
+            <div className="contact-list" role="list" aria-label="Contact links">
+              <a href="tel:+919644397542" className="contact-item" role="listitem">
+                <span className="contact-label">Phone</span>
+                <span className="contact-value">+91 9644397542</span>
+              </a>
+
+              <a href="mailto:kuldeep13rajak@gmail.com" className="contact-item" role="listitem">
+                <span className="contact-label">Gmail</span>
+                <span className="contact-value">kuldeep13rajak@gmail.com</span>
+              </a>
+
+              <a
+                href="https://github.com/kuldeep1324"
+                target="_blank"
+                rel="noreferrer"
+                className="contact-item"
+                role="listitem"
+              >
+                <span className="contact-label">GitHub</span>
+                <span className="contact-value">github.com/kuldeep1324</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/kuldeep1324/"
+                target="_blank"
+                rel="noreferrer"
+                className="contact-item"
+                role="listitem"
+              >
+                <span className="contact-label">LinkedIn</span>
+                <span className="contact-value">linkedin.com/in/kuldeep1324</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
