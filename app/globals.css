@@ -170,3 +170,167 @@ html {
     min-height: 100%;
   }
 }
+
+.projects-intro {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.projects-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.95rem;
+  font-weight: 700;
+  color: #d9e8ff;
+}
+
+.projects-index::before {
+  content: "";
+  width: 2.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, #7faeff, #2f68ff);
+}
+
+.projects-title {
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 0.95;
+  font-weight: 700;
+  color: #e7efff;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-card {
+  position: relative;
+  min-height: 260px;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  border: 1px solid rgba(130, 170, 255, 0.3);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  isolation: isolate;
+  transition: transform 360ms ease, box-shadow 360ms ease, border-color 360ms ease;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  filter: blur(0.5px) saturate(1.06);
+  transform: scale(1.02);
+  transition: transform 520ms ease, filter 520ms ease;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(255, 255, 255, 0.24), transparent 48%),
+    linear-gradient(180deg, rgba(6, 14, 35, 0.05) 0%, rgba(2, 8, 23, 0.72) 66%, rgba(2, 8, 23, 0.9) 100%);
+  transition: opacity 420ms ease;
+}
+
+.project-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 1.4rem;
+  width: min(82%, 320px);
+  transform: translateX(-50%);
+  border-radius: 1rem;
+  border: 1px solid rgba(178, 206, 255, 0.22);
+  background: rgba(4, 13, 34, 0.74);
+  backdrop-filter: blur(6px);
+  padding: 1rem 1.05rem;
+  text-align: center;
+  transition: transform 360ms ease, background-color 360ms ease, border-color 360ms ease;
+}
+
+.project-overlay h3 {
+  font-size: clamp(1.2rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+  color: #f2f6ff;
+  line-height: 1.2;
+}
+
+.project-overlay p {
+  margin-top: 0.48rem;
+  font-size: 0.93rem;
+  color: rgba(220, 234, 255, 0.86);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(156, 196, 255, 0.55);
+  box-shadow: 0 30px 55px rgba(3, 16, 51, 0.52);
+}
+
+.project-card:hover::before {
+  transform: scale(1.08);
+  filter: blur(0px) saturate(1.14);
+}
+
+.project-card:hover::after {
+  opacity: 0.82;
+}
+
+.project-card:hover .project-overlay {
+  transform: translateX(-50%) translateY(-5px);
+  background: rgba(4, 13, 34, 0.83);
+  border-color: rgba(195, 218, 255, 0.36);
+}
+
+.project-card:hover .project-overlay p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-joon::before {
+  background-image:
+    radial-gradient(70% 45% at 18% 12%, rgba(255, 209, 130, 0.8), transparent 70%),
+    linear-gradient(180deg, rgba(255, 160, 35, 0.95) 0%, rgba(255, 128, 22, 0.9) 27%, rgba(247, 243, 236, 0.95) 28%, rgba(221, 223, 228, 0.95) 68%, rgba(197, 203, 215, 0.95) 100%);
+}
+
+.project-renthub::before {
+  background-image:
+    radial-gradient(60% 42% at 78% 10%, rgba(232, 234, 134, 0.45), transparent 72%),
+    radial-gradient(55% 36% at 20% 16%, rgba(166, 196, 131, 0.42), transparent 74%),
+    linear-gradient(
+      180deg,
+      rgba(219, 212, 193, 0.96) 0%,
+      rgba(224, 214, 184, 0.95) 30%,
+      rgba(255, 110, 30, 0.93) 52%,
+      rgba(79, 125, 63, 0.95) 74%,
+      rgba(0, 63, 19, 0.96) 88%,
+      rgba(32, 33, 37, 0.98) 100%
+    );
+}
+
+.project-securevault::before {
+  background-image:
+    radial-gradient(50% 35% at 18% 15%, rgba(114, 169, 255, 0.35), transparent 74%),
+    radial-gradient(40% 25% at 82% 16%, rgba(255, 198, 74, 0.3), transparent 70%),
+    linear-gradient(170deg, rgba(12, 20, 42, 0.97), rgba(14, 16, 23, 0.95));
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+
+  .project-card {
+    min-height: 300px;
+  }
+}

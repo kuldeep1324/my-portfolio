@@ -133,26 +133,18 @@ export default function Home() {
         </div>
 
         <div className="projects-grid mt-10">
-          <article className="project-card project-joon">
+          <a
+            href="https://rent-hub-plum.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+            className="project-card project-renthub"
+            aria-label="Open RentHub project"
+          >
             <div className="project-overlay">
-              <h3>Joon Ecommerce Website</h3>
-              <p>Product catalog, cart flow, and fast checkout experience.</p>
-            </div>
-          </article>
-
-          <article className="project-card project-campurshare">
-            <div className="project-overlay">
-              <h3>CampurShare</h3>
+              <h3>RentHub</h3>
               <p>Community sharing platform with modern UI and APIs.</p>
             </div>
-          </article>
-
-          <article className="project-card project-securevault">
-            <div className="project-overlay">
-              <h3>Secure Vault Password Manager</h3>
-              <p>Encrypted vault UX with role-safe account controls.</p>
-            </div>
-          </article>
+          </a>
         </div>
       </section>
 
