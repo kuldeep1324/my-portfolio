@@ -80,49 +80,78 @@ export default function Home() {
 
       <section id="skills" className="mx-auto max-w-6xl px-6 py-8 md:px-8 md:py-12">
         <div className="glass-card rounded-3xl p-8 md:p-10">
-          <h2 className="text-3xl font-bold text-[#e7efff] md:text-4xl">Skills</h2>
-          <div className="mt-6 flex flex-wrap gap-3 text-sm md:text-base">
-            <span className="rounded-full border border-blue-300/25 bg-[#295dff]/18 px-4 py-2 font-medium text-[#cfe2ff]">Next.js</span>
-            <span className="rounded-full border border-blue-300/25 bg-[#295dff]/18 px-4 py-2 font-medium text-[#cfe2ff]">React</span>
-            <span className="rounded-full border border-blue-300/25 bg-[#295dff]/18 px-4 py-2 font-medium text-[#cfe2ff]">TypeScript</span>
-            <span className="rounded-full border border-blue-300/25 bg-[#295dff]/18 px-4 py-2 font-medium text-[#cfe2ff]">JavaScript</span>
-            <span className="rounded-full border border-blue-300/25 bg-[#295dff]/18 px-4 py-2 font-medium text-[#cfe2ff]">Tailwind CSS</span>
-            <span className="rounded-full border border-blue-300/25 bg-[#295dff]/18 px-4 py-2 font-medium text-[#cfe2ff]">Node.js</span>
-            <span className="rounded-full border border-blue-300/25 bg-[#295dff]/18 px-4 py-2 font-medium text-[#cfe2ff]">MongoDB</span>
-            <span className="rounded-full border border-blue-300/25 bg-[#295dff]/18 px-4 py-2 font-medium text-[#cfe2ff]">REST APIs</span>
+          <h2 className="text-3xl font-bold text-[#e7efff] md:text-4xl">My Skills</h2>
+          <div className="skills-chain mt-7">
+            <div className="skills-grid">
+              <article className="skill-column">
+                <h3 className="skill-title">Frontend</h3>
+                <ul className="skill-list">
+                  <li className="skill-node">Next.js</li>
+                  <li className="skill-node">React</li>
+                  <li className="skill-node">TypeScript</li>
+                  <li className="skill-node">JavaScript</li>
+                  <li className="skill-node">Tailwind CSS</li>
+                </ul>
+              </article>
+
+              <article className="skill-column">
+                <h3 className="skill-title">Backend</h3>
+                <ul className="skill-list">
+                  <li className="skill-node">Node.js</li>
+                  <li className="skill-node">Express.js</li>
+                  <li className="skill-node">REST APIs</li>
+                  <li className="skill-node">JWT Auth</li>
+                </ul>
+              </article>
+
+              <article className="skill-column">
+                <h3 className="skill-title">Database</h3>
+                <ul className="skill-list">
+                  <li className="skill-node">MongoDB</li>
+                  <li className="skill-node">Mongoose</li>
+                  <li className="skill-node">MySQL</li>
+                </ul>
+              </article>
+
+              <article className="skill-column">
+                <h3 className="skill-title">Other Languages</h3>
+                <ul className="skill-list">
+                  <li className="skill-node">C</li>
+                  <li className="skill-node">C++</li>
+                  <li className="skill-node">Python</li>
+                </ul>
+              </article>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="projects" className="mx-auto max-w-6xl px-6 py-16 md:px-8">
-        <h2 className="text-3xl font-bold text-[#e7efff] md:text-4xl">Featured Projects</h2>
-        <p className="mt-3 max-w-2xl text-[#c7dbff]/82">
-          A selection of practical projects with clear business goals and modern implementation.
-        </p>
+        <div className="projects-intro">
+          <p className="projects-index">04</p>
+          <h2 className="projects-title">My Projects</h2>
+        </div>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          <article className="glass-card group rounded-2xl p-6 transition hover:-translate-y-1">
-            <p className="text-sm font-semibold text-[#8dc0ff]">Analytics + AI</p>
-            <h3 className="mt-2 text-xl font-bold text-[#e7efff]">Drone Dashboard</h3>
-            <p className="mt-3 text-[#c7dbff]/82">
-              Real-time monitoring, mission analytics, and alerting to improve operational response time.
-            </p>
+        <div className="projects-grid mt-10">
+          <article className="project-card project-joon">
+            <div className="project-overlay">
+              <h3>Joon Ecommerce Website</h3>
+              <p>Product catalog, cart flow, and fast checkout experience.</p>
+            </div>
           </article>
 
-          <article className="glass-card group rounded-2xl p-6 transition hover:-translate-y-1">
-            <p className="text-sm font-semibold text-[#9ec2ff]">E-commerce UX</p>
-            <h3 className="mt-2 text-xl font-bold text-[#e7efff]">Salon Booking Platform</h3>
-            <p className="mt-3 text-[#c7dbff]/82">
-              Responsive booking flow, service management, and customer-first interface for conversions.
-            </p>
+          <article className="project-card project-campurshare">
+            <div className="project-overlay">
+              <h3>CampurShare</h3>
+              <p>Community sharing platform with modern UI and APIs.</p>
+            </div>
           </article>
 
-          <article className="glass-card group rounded-2xl p-6 transition hover:-translate-y-1">
-            <p className="text-sm font-semibold text-[#bcd5ff]">Automation</p>
-            <h3 className="mt-2 text-xl font-bold text-[#e7efff]">Admin Workflow Suite</h3>
-            <p className="mt-3 text-[#c7dbff]/82">
-              Dashboard tools to streamline repetitive tasks, increase team output, and reduce errors.
-            </p>
+          <article className="project-card project-securevault">
+            <div className="project-overlay">
+              <h3>Secure Vault Password Manager</h3>
+              <p>Encrypted vault UX with role-safe account controls.</p>
+            </div>
           </article>
         </div>
       </section>
