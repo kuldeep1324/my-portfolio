@@ -383,8 +383,8 @@ body {
 
 .contact-item {
   display: flex;
-  flex-direction: column;
-  gap: 0.22rem;
+  align-items: center;
+  gap: 0.8rem;
   border-radius: 0.95rem;
   border: 1px solid rgba(137, 172, 242, 0.22);
   background: linear-gradient(145deg, rgba(17, 31, 61, 0.82), rgba(13, 22, 43, 0.86));
@@ -400,6 +400,7 @@ body {
 }
 
 .contact-label {
+  display: block;
   color: #9cb6e8;
   font-size: 0.76rem;
   font-weight: 700;
@@ -408,10 +409,29 @@ body {
 }
 
 .contact-value {
+  display: block;
   color: #e7efff;
   font-size: 0.99rem;
   font-weight: 600;
   word-break: break-word;
+}
+
+.contact-icon {
+  display: inline-flex;
+  width: 2.2rem;
+  height: 2.2rem;
+  flex: 0 0 2.2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(154, 188, 255, 0.32);
+  background: linear-gradient(145deg, rgba(46, 80, 149, 0.45), rgba(28, 53, 104, 0.4));
+  color: #cfe2ff;
+}
+
+.contact-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 @media (min-width: 768px) {
