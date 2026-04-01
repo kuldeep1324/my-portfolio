@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import AnimatedBackground from "./components/AnimatedBackground";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,9 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased selection:bg-blue-300/50 selection:text-blue-950">
-        <Navbar />
-        {children}
+      <body className="relative antialiased selection:bg-blue-300/50 selection:text-blue-950">
+        <AnimatedBackground />
+        <div className="relative z-10">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );
