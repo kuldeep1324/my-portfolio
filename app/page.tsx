@@ -1,53 +1,10 @@
+import ProjectsSection from "./components/ProjectsSection";
+import HeroSection from "./components/HeroSection";
+
 export default function Home() {
   return (
-    <main id="home" className="min-h-screen pt-24 text-[#e7efff]">
-      <section className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-14 md:grid-cols-[1.2fr_1fr] md:px-8 md:py-20">
-        <div className="fade-up">
-          <p className="status-pill mb-3">
-            Available for freelance and full-time roles
-          </p>
-          <h1 className="hero-title text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
-            Building reliable web products with modern UX.
-          </h1>
-          <p className="mt-5 max-w-xl text-lg text-[#c7dbff]/82">
-            I am Kuldeep, a Full Stack Developer focused on performant Next.js applications,
-            practical AI integrations, and clean product experiences for businesses.
-          </p>
-
-          <div className="fade-up-delay mt-8 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="btn-primary"
-            >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              className="btn-secondary"
-            >
-              Contact Me
-            </a>
-          </div>
-        </div>
-
-        <div className="fade-up-delay-2">
-          <div className="glass-card relative mx-auto max-w-sm overflow-hidden rounded-3xl p-6">
-            <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-[#4c8dff]/35 blur-2xl" />
-            <div className="absolute -bottom-10 -left-8 h-28 w-28 rounded-full bg-[#295dff]/35 blur-2xl" />
-
-            <div className="profile-photo relative" role="img" aria-label="Kuldeep profile" />
-            <div className="relative mt-5">
-              <h2 className="text-2xl font-bold text-[#e7efff]">Kuldeep</h2>
-              <p className="text-[#c7dbff]/82">Full Stack Developer</p>
-              <div className="mt-4 flex flex-wrap gap-2 text-sm">
-                <span className="rounded-full bg-[#295dff]/18 px-3 py-1 font-medium text-[#9ec2ff]">Next.js</span>
-                <span className="rounded-full bg-[#4c8dff]/20 px-3 py-1 font-medium text-[#bcd5ff]">TypeScript</span>
-                <span className="rounded-full bg-[#8dc0ff]/18 px-3 py-1 font-medium text-[#dbe8ff]">AI Apps</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <main className="min-h-screen text-[#e7efff]">
+      <HeroSection />
 
       <section id="about" className="mx-auto max-w-6xl px-6 py-16 md:px-8">
         <div className="glass-card rounded-3xl p-8 md:p-10">
@@ -126,27 +83,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="mx-auto max-w-6xl px-6 py-16 md:px-8">
-        <div className="projects-intro">
-          <p className="projects-index">04</p>
-          <h2 className="projects-title">My Projects</h2>
-        </div>
-
-        <div className="projects-grid mt-10">
-          <a
-            href="https://rent-hub-plum.vercel.app/"
-            target="_blank"
-            rel="noreferrer"
-            className="project-card project-renthub"
-            aria-label="Open RentHub project"
-          >
-            <div className="project-overlay">
-              <h3>RentHub</h3>
-              <p>Community sharing platform with modern UI and APIs.</p>
-            </div>
-          </a>
-        </div>
-      </section>
+      <ProjectsSection />
 
       <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 pt-10 md:px-8">
         <div className="contact-shell glass-card rounded-3xl p-8 md:p-12">
