@@ -11,6 +11,7 @@ type ProjectItem = {
   githubUrl: string;
   image?: string;
   gradient: string;
+  theme?: "default" | "renthub";
 };
 
 export const sampleProjects: ProjectItem[] = [
@@ -21,7 +22,8 @@ export const sampleProjects: ProjectItem[] = [
     liveDemoUrl: "https://rent-hub-plum.vercel.app/",
     githubUrl: "https://github.com/kuldeep1324",
     gradient:
-      "radial-gradient(70% 70% at 80% 0%, rgba(120, 180, 255, 0.55), transparent 65%), linear-gradient(160deg, #112149, #172f67 42%, #0d1733)",
+      "radial-gradient(72% 65% at 84% 0%, rgba(243, 158, 31, 0.34), transparent 64%), linear-gradient(160deg, #3d6f49, #2f5d3d 44%, #244a32)",
+    theme: "renthub",
   },
   {
     title: "AI Portfolio Assistant",
@@ -74,13 +76,16 @@ const cardVariants = {
 
 function ProjectCard({ project }: { project: ProjectItem }) {
   const [isHovering, setIsHovering] = useState(false);
+  const isRentHubTheme = project.theme === "renthub";
 
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
   const springX = useSpring(rotateX, { stiffness: 180, damping: 18, mass: 0.6 });
   const springY = useSpring(rotateY, { stiffness: 180, damping: 18, mass: 0.6 });
 
-  const glow = useMotionTemplate`radial-gradient(420px 220px at 50% 0%, rgba(122, 170, 255, 0.28), transparent 70%)`;
+  const glow = useMotionTemplate`radial-gradient(420px 220px at 50% 0%, ${
+    isRentHubTheme ? "rgba(242, 173, 72, 0.26)" : "rgba(122, 170, 255, 0.28)"
+  }, transparent 70%)`;
 
   const imageBackground = useMemo(() => {
     if (project.image) {
@@ -124,22 +129,31 @@ function ProjectCard({ project }: { project: ProjectItem }) {
         className="relative rounded-[1.35rem] p-[1px]"
         style={{
           background:
-            "linear-gradient(145deg, rgba(165,205,255,0.56), rgba(97,140,255,0.2) 45%, rgba(103,88,255,0.34))",
+            isRentHubTheme
+              ? "linear-gradient(145deg, rgba(73, 118, 77, 0.62), rgba(60, 102, 66, 0.34) 44%, rgba(242, 166, 52, 0.42))"
+              : "linear-gradient(145deg, rgba(165,205,255,0.56), rgba(97,140,255,0.2) 45%, rgba(103,88,255,0.34))",
           rotateX: springX,
           rotateY: springY,
           transformPerspective: 1200,
-          boxShadow: "0 28px 60px rgba(0, 0, 0, 0.42)",
+          boxShadow: isRentHubTheme ? "0 24px 52px rgba(28, 43, 29, 0.3)" : "0 28px 60px rgba(0, 0, 0, 0.42)",
         }}
         onMouseMove={handlePointerMove}
         onMouseLeave={handlePointerLeave}
       >
         <motion.div
-          className="relative overflow-hidden rounded-[1.3rem] border border-white/10 bg-[#0b1530]/72 backdrop-blur-xl"
+          className={`relative overflow-hidden rounded-[1.3rem] border backdrop-blur-xl ${
+            isRentHubTheme ? "border-[#5a845f]/38 bg-[#f4edd4]/96" : "border-white/10 bg-[#0b1530]/72"
+          }`}
           style={{ backgroundImage: glow }}
         >
           <motion.div
             className="relative h-52 overflow-hidden border-b border-white/12 md:h-48"
-            style={{ background: imageBackground, backgroundSize: "cover", backgroundPosition: "center" }}
+            style={{
+              background: imageBackground,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              filter: isRentHubTheme ? "none" : "blur(1.5px) saturate(0.75)",
+            }}
             animate={{ scale: isHovering ? 1.06 : 1 }}
             transition={{ duration: 0.45, ease: "easeOut" }}
           >
@@ -147,51 +161,57 @@ function ProjectCard({ project }: { project: ProjectItem }) {
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(124, 166, 255, 0.02), rgba(52, 88, 180, 0.45) 50%, rgba(6, 14, 32, 0.8) 100%)",
+                  isRentHubTheme
+                    ? "linear-gradient(180deg, rgba(243, 161, 45, 0.08), rgba(58, 101, 65, 0.32) 54%, rgba(36, 70, 47, 0.62) 100%)"
+                    : "linear-gradient(180deg, rgba(124, 166, 255, 0.02), rgba(52, 88, 180, 0.45) 50%, rgba(6, 14, 32, 0.8) 100%)",
               }}
               animate={{ opacity: isHovering ? 1 : 0.55 }}
               transition={{ duration: 0.35 }}
             />
           </motion.div>
 
-          <div className="relative p-5">
-            <h3 className="text-xl font-bold tracking-tight text-[#ecf3ff]">{project.title}</h3>
-            <p className="mt-2 line-clamp-2 text-sm text-[#c6d8ff]/86">{project.description}</p>
+          {isRentHubTheme ? (
+            <div className="relative p-5">
+              <h3 className="text-xl font-bold tracking-tight text-[#1f2a1f]">{project.title}</h3>
+              <p className="mt-2 line-clamp-2 text-sm text-[#4f5f4f]">{project.description}</p>
 
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {project.techStack.map((tech) => (
-                <li
-                  key={tech}
-                  className="rounded-full border border-[#8eb5ff]/28 bg-[#173163]/55 px-2.5 py-1 text-xs font-medium text-[#d3e5ff]"
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {project.techStack.map((tech) => (
+                  <li key={tech} className="rounded-full border border-[#5f8a61]/34 bg-[#e8efd6] px-2.5 py-1 text-xs font-medium text-[#35553a]">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+
+              <motion.div
+                className="mt-5 grid grid-cols-2 gap-2"
+                animate={{ opacity: isHovering ? 1 : 0.76, y: isHovering ? 0 : 6 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+              >
+                <a
+                  href={project.liveDemoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-lg border border-[#d67a12] bg-[#f28615] px-3 py-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#db770f] hover:shadow-[0_0_20px_rgba(241,136,24,0.42)]"
                 >
-                  {tech}
-                </li>
-              ))}
-            </ul>
-
-            <motion.div
-              className="mt-5 grid grid-cols-2 gap-2"
-              animate={{ opacity: isHovering ? 1 : 0.76, y: isHovering ? 0 : 6 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-            >
-              <a
-                href={project.liveDemoUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-lg border border-[#8fb7ff]/52 bg-[#2f5bd2]/86 px-3 py-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_22px_rgba(86,132,255,0.58)]"
-              >
-                Live Demo
-              </a>
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-lg border border-[#a9c8ff]/38 bg-[#0f2146]/82 px-3 py-2 text-sm font-semibold text-[#d7e6ff] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#aecdff]/72 hover:shadow-[0_0_20px_rgba(122,170,255,0.48)]"
-              >
-                GitHub Repo
-              </a>
-            </motion.div>
-          </div>
+                  Live Demo
+                </a>
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-lg border border-[#4c734f]/42 bg-[#f1e4b6] px-3 py-2 text-sm font-semibold text-[#2f4f36] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#3f6744] hover:bg-[#e9dba5] hover:shadow-[0_0_18px_rgba(67,105,74,0.24)]"
+                >
+                  GitHub Repo
+                </a>
+              </motion.div>
+            </div>
+          ) : (
+            <div className="relative flex min-h-[250px] items-center justify-center p-5">
+              <div className="absolute inset-0 bg-[#0f1f46]/45 backdrop-blur-md" />
+              <p className="relative text-3xl font-extrabold tracking-wide text-[#d5e3ff]">Coming Soon!</p>
+            </div>
+          )}
         </motion.div>
       </motion.div>
     </motion.article>
@@ -205,7 +225,7 @@ export default function ProjectsSection({ projects = sampleProjects }: ProjectsS
         className="pointer-events-none absolute inset-x-0 top-8 -z-10 mx-auto h-[320px] w-[92%] max-w-5xl rounded-full opacity-70 blur-3xl"
         style={{
           background:
-            "radial-gradient(50% 65% at 50% 50%, rgba(77, 125, 255, 0.34), rgba(66, 103, 210, 0.16) 52%, transparent 84%)",
+            "radial-gradient(50% 65% at 50% 50%, rgba(77, 125, 255, 0.28), rgba(66, 103, 210, 0.14) 54%, transparent 84%)",
         }}
       />
 
